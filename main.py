@@ -8,69 +8,57 @@ class TravelingSalesmanProblem:
         self.graph = nx.Graph()
         self.graph.add_weighted_edges_from(graph)
     
-    def bound(self, path):
-        total_bound = 0
-
-        for node in self.graph.nodes:
-            edges = [
-                self.graph[node][neighbor]['weight']
-                for neighbor in self.graph.neighbors(node)
-            ]
-            if node in path:
-                if len(edges) > 0:
-                    total_bound += min(edges)
-            else:
-                if len(edges) > 1:
-                    total_bound += sum(sorted(edges)[:2])
-                elif len(edges) == 1:
-                    total_bound += edges[0]
-
-        total_bound = ceil(total_bound / 2)
-        return total_bound
-
     def branch_and_bound_algorithm(self):
-        root = (self.bound([]), 0 , 0, [0]) 
-        best = inf
-        sol = None
-        n = self.graph.number_of_nodes()
-        # node[0]: bound, node[1]: level, node[2]: custo acumulado, node[3]: caminho atual
-        queue = []
-        heapq.heappush(queue, root)
-        while queue:
-            node = heapq.heappop(queue)
-            if node[1] > n:
-                if best > node[2]: 
-                    best = node[2]
-                    sol = node[3]
-            elif node[0] < best:
-                if node[1] < n:
-                    for k in range(1, n-1):
-                        if (
-                            k not in node[3] 
-                            and self.graph.get_edge_data(node[3][-1], k)
-                            and self.bound(node[3] + [k]) < best
-                        ):
-                            heapq.heappush(queue,(
-                                self.bound(node[3]+[k]),
-                                node[1] + 1,
-                                node[2] + self.graph.get_edge_data(node[3][-1], k)['weight'],
-                                node[3] + [k]
-                            ))
-                elif (
-                    self.graph.get_edge_data(node[3][-1], 0)
-                    and self.bound(node[3] + [0]) < best
-                    and self.graph.edges in node[3]
-                ):
-                    heapq.heappush(queue,(
-                        self.bound(node[3]+[0]),
-                        node[1] + 1,
-                        node[2] + self.graph.get_edge_data(node[3][-1], 0)['weight'],
-                        node[3] + [0]
-                    ))
+        n = len(self.graph.nodes)
+        if n == 0:
+            return (0, [])
+        
+        def calculate_bound(path):
+            bound = 0
+            for node in self.graph.nodes:
+                if node in path:
+                    continue  # vértices já visitados
+                # sum(duas menores)/2
+                edges = sorted([self.graph[node][neighbor]['weight'] for neighbor in self.graph.neighbors(node)])
+                if len(edges) >= 2:
+                    bound += edges[0] + edges[1]
+                elif len(edges) == 1:
+                    bound += edges[0]
+            return bound / 2 
 
-        return node[3]
+        pq = []
+        start_node = 0
+        heapq.heappush(pq, (0, 0, [start_node], 0))  # (bound, current_cost, path, last_node)
+
+        best_cost = inf
+        best_path = []
+
+        while pq:
+            curr_bound, curr_cost, curr_path, last_node = heapq.heappop(pq)
+
+            # poda
+            if curr_bound >= best_cost:
+                continue
+
+            if len(curr_path) == n:
+                final_cost = curr_cost + self.graph[curr_path[-1]][curr_path[0]]['weight']
+                if final_cost < best_cost:
+                    best_cost = final_cost
+                    best_path = curr_path + [curr_path[0]]
+                continue
+
+            for neighbor in self.graph.neighbors(last_node):
+                if neighbor not in curr_path:
+                    new_path = curr_path + [neighbor]
+                    edge_cost = self.graph[last_node][neighbor]['weight']
+                    new_cost = curr_cost + edge_cost
+                    new_bound = new_cost + calculate_bound(new_path)
+                    if new_bound < best_cost:
+                        heapq.heappush(pq, (new_bound, new_cost, new_path, neighbor))
+
+        return best_cost, best_path
     
-    def twice_arount_the_tree_algorithm(self):
+    def twice_arount_the_tree_algorithm(self): # 2-aproximativo
         root = next(iter(self.graph.nodes))
         mst = nx.minimum_spanning_tree(self.graph)
         preorder = list(nx.dfs_preorder_nodes(mst, source=root))
@@ -91,7 +79,7 @@ class TravelingSalesmanProblem:
         
         return simplified_circuit
 
-    def christofides_algorithm(self):
+    def christofides_algorithm(self): # 1.5-aproximativo
         # Computar a árvore geradora mínima (MST)
         mst = nx.minimum_spanning_tree(self.graph)
         
