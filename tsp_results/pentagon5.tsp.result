@@ -1,0 +1,22 @@
+Instance: pentagon5
+
+--- Branch and Bound Algorithm ---
+Minimum Path: [0, 1, 2, 3, 4, 0]
+Minimum Cost: 14
+Execution Time: 0.0148 seconds
+Memory Usage: 56 bytes
+Relative Error: 0.0000
+
+--- Twice Around the Tree Algorithm ---
+Minimum Path: [0, 1, 2, 3, 4, 0]
+Minimum Cost: 14
+Execution Time: 0.0041 seconds
+Memory Usage: 56 bytes
+Relative Error: 0.0000
+
+--- Christofides Algorithm ---
+Minimum Path: [0, 4, 3, 2, 1, 0]
+Minimum Cost: 14
+Execution Time: 0.0179 seconds
+Memory Usage: 56 bytes
+Relative Error: 0.0000

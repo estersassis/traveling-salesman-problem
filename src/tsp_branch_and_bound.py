@@ -68,7 +68,11 @@ class BranchAndBoundAlgorithm:
         
         end_time = time.process_time()
         self.execution_time = end_time - start_time
-        self.memory_usage = sys.getsizeof(pq) + sum(sys.getsizeof(item) for item in pq)
+        self.memory_usage = (
+            sys.getsizeof(pq) + 
+            sum(sys.getsizeof(item) for item in pq) + 
+            sys.getsizeof(best_path)
+        )
         self.minimum_cost = best_cost
         self.minimum_path = best_path
         return self

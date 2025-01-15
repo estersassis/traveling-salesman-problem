@@ -67,6 +67,14 @@ class ChristofidesAlgorithm:
 
         end_time = time.process_time()
         self.execution_time = end_time - start_time
-        self.memory_usage = sys.getsizeof(mst)
+        self.memory_usage = (
+            sys.getsizeof(mst) +
+            sys.getsizeof(odd_degree_vertices) +
+            sys.getsizeof(induced_subgraph) +
+            sys.getsizeof(matching) +
+            sys.getsizeof(eulerian_graph) +
+            sys.getsizeof(eulerian_circuit) +
+            sys.getsizeof(hamiltonian_path)
+        )
 
         return self

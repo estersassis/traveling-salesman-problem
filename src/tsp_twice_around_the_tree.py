@@ -30,7 +30,11 @@ class TwiceAroundTheTreeAlgorithm:
         
         end_time = time.process_time()
         self.execution_time = end_time - start_time
-        self.memory_usage = sys.getsizeof(mst)
+        self.memory_usage = (
+            sys.getsizeof(mst) +
+            sys.getsizeof(preorder) +
+            sys.getsizeof(hamiltonian_cycle) 
+        )
         self.minimum_cost = total_weight
         self.minimum_path = hamiltonian_cycle
 

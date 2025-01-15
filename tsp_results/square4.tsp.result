@@ -1,22 +1,22 @@
-Instance: example
+Instance: square4
 
 --- Branch and Bound Algorithm ---
 Minimum Path: [0, 1, 3, 2, 0]
-Minimum Cost: 13
-Execution Time: 0.0100 seconds
+Minimum Cost: 12
+Execution Time: 0.0063 seconds
 Memory Usage: 56 bytes
 Relative Error: 0.0000
 
 --- Twice Around the Tree Algorithm ---
 Minimum Path: [0, 1, 3, 2, 0]
-Minimum Cost: 13
-Execution Time: 0.0043 seconds
+Minimum Cost: 12
+Execution Time: 0.0034 seconds
 Memory Usage: 56 bytes
 Relative Error: 0.0000
 
 --- Christofides Algorithm ---
 Minimum Path: [0, 2, 3, 1, 0]
-Minimum Cost: 13
-Execution Time: 0.0089 seconds
+Minimum Cost: 12
+Execution Time: 0.0091 seconds
 Memory Usage: 56 bytes
 Relative Error: 0.0000

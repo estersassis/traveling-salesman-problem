@@ -110,4 +110,8 @@ ulysses22 : 7013
 usa13509 : 19982859
 vm1084 : 239297
 vm1748 : 336556
-example : 13
+example4 : 13
+hexagon6 : 12
+pentagon5 : 14
+random6 : 16
+square4 : 12
