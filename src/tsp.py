@@ -12,7 +12,7 @@ class TravelingSalesmanProblem:
         self.file_path = file_path
         self.optimal_file = optimal_file
         self.instance = None
-        self.timeout = 10.0
+        self.timeout = 1800.0
 
         self.graph = self.build_graph()
 
@@ -103,6 +103,13 @@ class TravelingSalesmanProblem:
                     algorithm.relative_error = -1
 
         if self.instance not in optimal_values:
+            for algorithm in [
+                self.branch_and_bound_algorithm,
+                self.twice_around_the_tree_algorithm,
+                self.christofides_algorithm,
+            ]:
+                if algorithm.timeout == False:
+                    algorithm.relative_error = -1
             return
 
         optimal_value = optimal_values[self.instance]

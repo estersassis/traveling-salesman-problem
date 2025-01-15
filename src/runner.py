@@ -1,5 +1,6 @@
 import os
 import shutil
+import asyncio
 from src.tsp import TravelingSalesmanProblem
 
 
@@ -13,11 +14,9 @@ class TravelingSalesmanProblemRunner:
         os.makedirs(self.folder_to_process, exist_ok=True)
         os.makedirs(self.processed_folder, exist_ok=True)
         os.makedirs(self.results_folder, exist_ok=True)
-
-    async def run_for_all_files(self):
-        files = [f for f in os.listdir(self.folder_to_process) if f.endswith(".tsp")]
-
-        for file_name in files:
+    
+    async def process_file(self, file_name, semaphore):
+        async with semaphore:
             file_path = os.path.join(self.folder_to_process, file_name)
             print(f"Processing {file_path}...")
 
@@ -30,7 +29,14 @@ class TravelingSalesmanProblemRunner:
             except Exception as e:
                 shutil.move(file_path, os.path.join(self.processed_folder, file_name))
                 print(f"Error processing {file_name}: {e}. Skipping to next file.")
-                continue
+
+    async def run_for_all_files(self):
+        files = [f for f in os.listdir(self.folder_to_process) if f.endswith(".tsp")]
+
+        semaphore = asyncio.Semaphore(10)
+        tasks = [self.process_file(file_name, semaphore) for file_name in files]
+
+        await asyncio.gather(*tasks)
         
     def move_back_processed_files(self):
         files = os.listdir(self.processed_folder)

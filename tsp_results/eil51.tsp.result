@@ -1,0 +1,22 @@
+Instance: eil51
+
+--- Branch and Bound Algorithm ---
+Minimum Path: NA
+Minimum Cost: NA
+Execution Time: NA
+Memory Usage: NA
+Relative Error: NA
+
+--- Twice Around the Tree Algorithm ---
+Minimum Path: [0, 31, 10, 37, 4, 8, 48, 9, 38, 49, 15, 1, 33, 29, 20, 28, 21, 26, 50, 45, 11, 46, 3, 16, 36, 14, 43, 41, 18, 40, 12, 39, 44, 32, 17, 5, 47, 7, 25, 30, 27, 2, 19, 34, 35, 22, 6, 42, 23, 13, 24, 0]
+Minimum Cost: 584
+Execution Time: 0.8867 seconds
+Memory Usage: 56 bytes
+Relative Error: 0.3709
+
+--- Christofides Algorithm ---
+Minimum Path: [0, 21, 26, 50, 45, 11, 46, 3, 17, 16, 36, 14, 32, 44, 43, 41, 18, 39, 40, 12, 24, 13, 5, 47, 35, 34, 19, 2, 27, 30, 7, 25, 22, 23, 6, 42, 38, 9, 48, 8, 29, 33, 49, 20, 28, 1, 15, 37, 4, 10, 31, 0]
+Minimum Cost: 538
+Execution Time: 2.5921 seconds
+Memory Usage: 56 bytes
+Relative Error: 0.2629
