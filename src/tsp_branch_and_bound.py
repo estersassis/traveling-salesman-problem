@@ -19,14 +19,14 @@ class BranchAndBoundAlgorithm:
         bound = 0
         for node in self.graph.nodes:
             if node in path:
-                continue  # Vértices já visitados
+                continue
             # sum(duas menores)/2
             edges = sorted([self.graph[node][neighbor]['weight'] for neighbor in self.graph.neighbors(node)])
             if len(edges) >= 2:
                 bound += edges[0] + edges[1]
             elif len(edges) == 1:
                 bound += edges[0]
-            await asyncio.sleep(0)  # Liberar controle após cada nó
+            await asyncio.sleep(0)  # liberar controle após cada nó
         return bound / 2
 
     async def execute(self):
