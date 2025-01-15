@@ -3,20 +3,20 @@ Instance: random6
 --- Branch and Bound Algorithm ---
 Minimum Path: [0, 1, 3, 4, 2, 5, 0]
 Minimum Cost: 16
-Execution Time: 0.0248 seconds
-Memory Usage: 56 bytes
+Execution Time: 36.9849 seconds
+Memory Usage: 168 bytes
 Relative Error: 0.0000
 
 --- Twice Around the Tree Algorithm ---
 Minimum Path: [0, 1, 5, 2, 3, 4, 0]
 Minimum Cost: 18
-Execution Time: 0.0077 seconds
-Memory Usage: 56 bytes
+Execution Time: 3.2964 seconds
+Memory Usage: 288 bytes
 Relative Error: 0.1250
 
 --- Christofides Algorithm ---
 Minimum Path: [0, 1, 3, 4, 2, 5, 0]
 Minimum Cost: 16
-Execution Time: 0.0205 seconds
-Memory Usage: 56 bytes
+Execution Time: 5.0689 seconds
+Memory Usage: 840 bytes
 Relative Error: 0.0000

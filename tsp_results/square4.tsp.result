@@ -3,20 +3,20 @@ Instance: square4
 --- Branch and Bound Algorithm ---
 Minimum Path: [0, 1, 3, 2, 0]
 Minimum Cost: 12
-Execution Time: 0.0063 seconds
-Memory Usage: 56 bytes
+Execution Time: 0.6188 seconds
+Memory Usage: 152 bytes
 Relative Error: 0.0000
 
 --- Twice Around the Tree Algorithm ---
 Minimum Path: [0, 1, 3, 2, 0]
 Minimum Cost: 12
-Execution Time: 0.0034 seconds
-Memory Usage: 56 bytes
+Execution Time: 0.1504 seconds
+Memory Usage: 272 bytes
 Relative Error: 0.0000
 
 --- Christofides Algorithm ---
 Minimum Path: [0, 2, 3, 1, 0]
 Minimum Cost: 12
-Execution Time: 0.0091 seconds
-Memory Usage: 56 bytes
+Execution Time: 0.4182 seconds
+Memory Usage: 840 bytes
 Relative Error: 0.0000

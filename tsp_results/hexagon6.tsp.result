@@ -3,20 +3,20 @@ Instance: hexagon6
 --- Branch and Bound Algorithm ---
 Minimum Path: [0, 1, 2, 3, 4, 5, 0]
 Minimum Cost: 12
-Execution Time: 0.0102 seconds
-Memory Usage: 56 bytes
+Execution Time: 9.4287 seconds
+Memory Usage: 168 bytes
 Relative Error: 0.0000
 
 --- Twice Around the Tree Algorithm ---
 Minimum Path: [0, 1, 2, 3, 4, 5, 0]
 Minimum Cost: 12
-Execution Time: 0.0045 seconds
-Memory Usage: 56 bytes
+Execution Time: 0.8583 seconds
+Memory Usage: 288 bytes
 Relative Error: 0.0000
 
 --- Christofides Algorithm ---
 Minimum Path: [0, 5, 4, 3, 2, 1, 0]
 Minimum Cost: 12
-Execution Time: 0.0084 seconds
-Memory Usage: 56 bytes
+Execution Time: 1.8978 seconds
+Memory Usage: 840 bytes
 Relative Error: 0.0000

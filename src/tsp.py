@@ -12,7 +12,7 @@ class TravelingSalesmanProblem:
         self.file_path = file_path
         self.optimal_file = optimal_file
         self.instance = None
-        self.timeout = 1800.0
+        self.timeout = 300.0
 
         self.graph = self.build_graph()
 

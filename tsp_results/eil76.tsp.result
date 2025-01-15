@@ -10,13 +10,13 @@ Relative Error: NA
 --- Twice Around the Tree Algorithm ---
 Minimum Path: [0, 72, 32, 62, 15, 48, 23, 22, 55, 61, 27, 73, 1, 29, 67, 74, 75, 66, 33, 45, 7, 34, 6, 18, 52, 13, 58, 10, 64, 37, 9, 57, 71, 38, 8, 31, 43, 2, 49, 17, 24, 54, 30, 65, 51, 26, 44, 28, 47, 46, 20, 35, 68, 4, 36, 19, 69, 59, 70, 14, 56, 12, 53, 25, 3, 5, 50, 16, 11, 39, 60, 21, 42, 40, 41, 63, 0]
 Minimum Cost: 696
-Execution Time: 3.3416 seconds
-Memory Usage: 56 bytes
+Execution Time: 7.2037 seconds
+Memory Usage: 1392 bytes
 Relative Error: 0.2937
 
 --- Christofides Algorithm ---
 Minimum Path: [0, 42, 40, 41, 63, 68, 35, 46, 20, 47, 28, 4, 14, 56, 70, 59, 69, 19, 36, 44, 26, 51, 33, 66, 25, 75, 74, 3, 67, 39, 11, 16, 50, 5, 1, 29, 73, 27, 60, 61, 21, 72, 58, 13, 52, 34, 18, 53, 12, 45, 7, 6, 10, 65, 64, 37, 9, 30, 57, 71, 38, 8, 31, 43, 2, 49, 17, 24, 54, 62, 22, 55, 23, 48, 15, 32, 0]
 Minimum Cost: 717
-Execution Time: 7.4689 seconds
-Memory Usage: 56 bytes
+Execution Time: 17.9978 seconds
+Memory Usage: 3848 bytes
 Relative Error: 0.3327
