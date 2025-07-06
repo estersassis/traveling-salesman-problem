@@ -27,7 +27,6 @@ $ python3 main.py -p tsp -o processed_folder -r results_folder -opt optimal_file
 - `-o` ou `--output`: Define a pasta onde os arquivos processados serão armazenados.
 - `-r` ou `--results`: Define a pasta onde os resultados serão salvos.
 - `-opt` ou `--optimal`: Define o arquivo que contém os valores ótimos.
-- `--file`: Define um arquivo específico a ser processado, caso não seja usado, todos os arquivos da pasta definida no `--path` serão processadas.
 ---
 
 ### **Tag para Retornar os Arquivos à Pasta de Origem**
